@@ -17,7 +17,7 @@
     /* ─── VARIABLES ─────────────────────────────────── */
     :root {
       --creme:          #F5F0E8;
-      --noir:           #1A1A1A;
+      --noir:           #2B2225;
       --rose-vif:       #FF3CAC;
       --rose-doux:      #F2A7C3;
       --beige-fonce:    #D4C4A8;
@@ -197,6 +197,7 @@
       overflow: hidden;
       line-height: 0;
       margin-top: -1px;
+      pointer-events: none;
     }
     .wave-divider svg {
       display: block;
@@ -209,6 +210,23 @@
     }
     @keyframes drawWave {
       to { stroke-dashoffset: 0; }
+    }
+
+    /* Section blob dividers */
+    .blob-divider {
+      width: 100%;
+      line-height: 0;
+      overflow: hidden;
+      pointer-events: none;
+      margin: -1px 0;
+    }
+    .blob-divider svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .blob-divider--flip svg {
+      transform: scaleY(-1);
     }
 
     /* ─────────────────────────────────────────────────
@@ -636,6 +654,13 @@
     </div>
   </section>
 
+  <!-- Divider: highlights → séries -->
+  <div class="blob-divider">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C180,80 360,0 540,40 C720,80 900,10 1080,50 C1200,70 1320,20 1440,40 L1440,80 L0,80 Z" fill="var(--noir)"/>
+    </svg>
+  </div>
+
   <!-- ════════════════════════════════════════════════
        SÉRIES & REELS
   ═════════════════════════════════════════════════ -->
@@ -651,6 +676,13 @@
     </div>
   </section>
 
+  <!-- Divider: séries → liens -->
+  <div class="blob-divider blob-divider--flip">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,45 C200,80 400,5 600,35 C800,65 1000,10 1200,45 C1320,65 1400,30 1440,40 L1440,80 L0,80 Z" fill="var(--noir)"/>
+    </svg>
+  </div>
+
   <!-- ════════════════════════════════════════════════
        LIENS EXTERNES
   ═════════════════════════════════════════════════ -->
@@ -664,6 +696,13 @@
       <div class="empty-state">Chargement… 💔</div>
     </div>
   </section>
+
+  <!-- Divider: liens → footer -->
+  <div class="blob-divider">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,30 C160,60 320,5 480,30 C640,55 800,10 960,35 C1120,60 1280,15 1440,30 L1440,60 L0,60 Z" fill="var(--noir)"/>
+    </svg>
+  </div>
 
   <!-- ════════════════════════════════════════════════
        FOOTER
@@ -761,7 +800,7 @@
           <div class="serie-card">
             <div class="serie-thumb">
               ${thumb}
-              <span class="serie-label" style="background:${r.couleur_label || '#1A1A1A'}">
+              <span class="serie-label" style="background:${r.couleur_label || '#2B2225'}">
                 ${r.nom_serie}
               </span>
             </div>
@@ -843,7 +882,7 @@
 
     const FALLBACK_SERIES = [
       { nom_serie:'La pire rupture de…', description_courte:'Des célébrités racontent leur pire rupture sans filtre', lien_instagram:'https://www.instagram.com/les.petits.pots_', image_miniature:'', couleur_label:'#FF3CAC' },
-      { nom_serie:'La parole aux ZOMMES', description_courte:'Les hommes parlent d\'amour — enfin', lien_instagram:'https://www.instagram.com/les.petits.pots_', image_miniature:'', couleur_label:'#1A1A1A' },
+      { nom_serie:'La parole aux ZOMMES', description_courte:'Les hommes parlent d\'amour — enfin', lien_instagram:'https://www.instagram.com/les.petits.pots_', image_miniature:'', couleur_label:'#2B2225' },
       { nom_serie:'T\'as 2 min pour parler d\'amour?', description_courte:'Micro-trottoir émotionnel dans les rues de Paris', lien_instagram:'https://www.instagram.com/les.petits.pots_', image_miniature:'', couleur_label:'#8FA5B2' },
       { nom_serie:'Ouin-ouin académie', description_courte:'Humour et auto-dérision post-rupture', lien_instagram:'https://www.instagram.com/les.petits.pots_', image_miniature:'', couleur_label:'#FF3CAC' },
       { nom_serie:'Micro rupture', description_courte:'Pourquoi tu ghostes ? On enquête', lien_instagram:'https://www.instagram.com/les.petits.pots_', image_miniature:'', couleur_label:'#D4C4A8' },
