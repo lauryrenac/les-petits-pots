@@ -219,6 +219,8 @@
       overflow: hidden;
       pointer-events: none;
       margin: -1px 0;
+      position: relative;
+      z-index: 2;
     }
     .blob-divider svg {
       display: block;
@@ -228,11 +230,59 @@
     .blob-divider--flip svg {
       transform: scaleY(-1);
     }
+    .blob-divider path {
+      /* animated via <animate> SVG */
+    }
+
+    /* ─── DECORATIVE SECTION SHAPES ────────────────── */
+    .section-deco {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+      filter: blur(60px);
+      z-index: 0;
+    }
+    .section-deco.visible {
+      opacity: 1;
+      transition: opacity 1.2s ease;
+    }
+    .section-deco--float {
+      animation: decoFloat 8s ease-in-out infinite alternate;
+    }
+    .section-deco--float2 {
+      animation: decoFloat2 10s ease-in-out infinite alternate;
+    }
+    .section-deco--float3 {
+      animation: decoFloat3 7s ease-in-out infinite alternate;
+    }
+    @keyframes decoFloat {
+      0%   { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(20px, -15px) scale(1.08); }
+    }
+    @keyframes decoFloat2 {
+      0%   { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-15px, 20px) scale(0.94); }
+    }
+    @keyframes decoFloat3 {
+      0%   { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(12px, 10px) rotate(6deg); }
+    }
 
     /* ─────────────────────────────────────────────────
        HIGHLIGHTS — scrapbook style
     ───────────────────────────────────────────────── */
-    #highlights { background: transparent; position: relative; }
+    #highlights {
+      background: linear-gradient(170deg, var(--creme) 0%, #e3d5c0 35%, #d4c5ae 100%);
+      position: relative;
+      overflow: hidden;
+      max-width: 100%;
+      padding: 80px 0 160px 0;
+      margin-bottom: -80px;
+      z-index: 1;
+    }
+    #highlights > .inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+    @media (min-width: 768px) { #highlights > .inner { padding: 0 48px; } }
 
     .highlights-grid {
       display: grid;
@@ -328,8 +378,16 @@
     /* ─────────────────────────────────────────────────
        SÉRIES
     ───────────────────────────────────────────────── */
-    #series { background: var(--noir); color: var(--creme); max-width: 100%; padding: 80px 0; }
-    #series > .inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    #series {
+      background: linear-gradient(165deg, #2B2225 0%, #3a2d35 30%, #211c23 100%);
+      color: var(--creme);
+      max-width: 100%;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+      z-index: 3;
+    }
+    #series > .inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
     @media (min-width: 768px) { #series > .inner { padding: 0 48px; } }
 
     #series .section-title .big  { color: var(--creme); }
@@ -426,7 +484,18 @@
     /* ─────────────────────────────────────────────────
        LIENS EXTERNES — warm safe-space cards
     ───────────────────────────────────────────────── */
-    #liens { background: transparent; }
+    #liens {
+      background: linear-gradient(175deg, #d4c5ae 0%, var(--creme) 45%, #e8dcc6 100%);
+      position: relative;
+      overflow: hidden;
+      max-width: 100%;
+      padding: 160px 0 160px 0;
+      margin-top: -80px;
+      margin-bottom: -80px;
+      z-index: 1;
+    }
+    #liens > .inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+    @media (min-width: 768px) { #liens > .inner { padding: 0 48px; } }
 
     .liens-intro {
       text-align: center;
@@ -554,6 +623,8 @@
       color: var(--creme);
       text-align: center;
       padding: 60px 24px;
+      position: relative;
+      z-index: 2;
     }
     .footer-logo {
       font-family: var(--font-display);
@@ -637,7 +708,12 @@
   <div class="wave-divider">
     <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" height="60">
       <path d="M0 30 C240 60, 480 0, 720 30 C960 60, 1200 0, 1440 30"
-            stroke="#D4C4A8" stroke-width="2" fill="none" />
+            stroke="#D4C4A8" stroke-width="2" fill="none">
+        <animate attributeName="d" dur="5s" repeatCount="indefinite"
+          values="M0 30 C240 60, 480 0, 720 30 C960 60, 1200 0, 1440 30;
+                  M0 35 C260 5, 500 55, 720 25 C940 -5, 1180 55, 1440 35;
+                  M0 30 C240 60, 480 0, 720 30 C960 60, 1200 0, 1440 30" />
+      </path>
     </svg>
   </div>
 
@@ -645,19 +721,29 @@
        HIGHLIGHTS DE L'ANNÉE
   ═════════════════════════════════════════════════ -->
   <section id="highlights">
-    <div class="section-title">
-      <span class="big">L'ANNÉE</span>
-      <span class="small">✦ en quelques moments</span>
-    </div>
-    <div class="highlights-grid" id="highlights-grid">
-      <div class="empty-state">Chargement… 💔</div>
+    <div class="section-deco section-deco--float" style="width:280px;height:280px;background:rgba(255,60,172,0.06);top:10%;left:-60px;"></div>
+    <div class="section-deco section-deco--float2" style="width:200px;height:200px;background:rgba(143,165,178,0.07);bottom:5%;right:-40px;"></div>
+    <div class="section-deco section-deco--float3" style="width:160px;height:160px;background:rgba(242,167,195,0.06);top:50%;left:60%;"></div>
+    <div class="inner">
+      <div class="section-title">
+        <span class="big">L'ANNÉE</span>
+        <span class="small">✦ en quelques moments</span>
+      </div>
+      <div class="highlights-grid" id="highlights-grid">
+        <div class="empty-state">Chargement… 💔</div>
+      </div>
     </div>
   </section>
 
   <!-- Divider: highlights → séries -->
   <div class="blob-divider">
     <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,40 C180,80 360,0 540,40 C720,80 900,10 1080,50 C1200,70 1320,20 1440,40 L1440,80 L0,80 Z" fill="var(--noir)"/>
+      <path fill="var(--noir)" d="M0,40 C180,80 360,0 540,40 C720,80 900,10 1080,50 C1200,70 1320,20 1440,40 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="6s" repeatCount="indefinite"
+          values="M0,40 C180,80 360,0 540,40 C720,80 900,10 1080,50 C1200,70 1320,20 1440,40 L1440,80 L0,80 Z;
+                  M0,50 C200,20 380,70 560,35 C740,0 920,65 1100,30 C1240,10 1360,60 1440,45 L1440,80 L0,80 Z;
+                  M0,40 C180,80 360,0 540,40 C720,80 900,10 1080,50 C1200,70 1320,20 1440,40 L1440,80 L0,80 Z" />
+      </path>
     </svg>
   </div>
 
@@ -665,6 +751,9 @@
        SÉRIES & REELS
   ═════════════════════════════════════════════════ -->
   <section id="series">
+    <div class="section-deco section-deco--float2" style="width:320px;height:320px;background:rgba(255,60,172,0.04);top:5%;right:-80px;"></div>
+    <div class="section-deco section-deco--float" style="width:240px;height:240px;background:rgba(143,165,178,0.05);bottom:10%;left:-60px;"></div>
+    <div class="section-deco section-deco--float3" style="width:180px;height:180px;background:rgba(242,167,195,0.04);top:45%;left:30%;"></div>
     <div class="inner">
       <div class="section-title right">
         <span class="big">SÉRIES</span>
@@ -679,7 +768,12 @@
   <!-- Divider: séries → liens -->
   <div class="blob-divider blob-divider--flip">
     <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,45 C200,80 400,5 600,35 C800,65 1000,10 1200,45 C1320,65 1400,30 1440,40 L1440,80 L0,80 Z" fill="var(--noir)"/>
+      <path fill="var(--noir)" d="M0,45 C200,80 400,5 600,35 C800,65 1000,10 1200,45 C1320,65 1400,30 1440,40 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="7s" repeatCount="indefinite"
+          values="M0,45 C200,80 400,5 600,35 C800,65 1000,10 1200,45 C1320,65 1400,30 1440,40 L1440,80 L0,80 Z;
+                  M0,35 C220,10 420,70 620,40 C820,10 1020,65 1220,35 C1340,15 1420,55 1440,48 L1440,80 L0,80 Z;
+                  M0,45 C200,80 400,5 600,35 C800,65 1000,10 1200,45 C1320,65 1400,30 1440,40 L1440,80 L0,80 Z" />
+      </path>
     </svg>
   </div>
 
@@ -687,20 +781,30 @@
        LIENS EXTERNES
   ═════════════════════════════════════════════════ -->
   <section id="liens">
-    <div class="section-title">
-      <span class="big">PAR ICI</span>
-      <span class="small">aussi &#x1F49B;</span>
-    </div>
-    <p class="liens-intro">des ressources douces pour t’accompagner, où que tu en sois ✨</p>
-    <div class="liens-grid" id="liens-list">
-      <div class="empty-state">Chargement… 💔</div>
+    <div class="section-deco section-deco--float3" style="width:260px;height:260px;background:rgba(242,167,195,0.07);top:8%;right:-50px;"></div>
+    <div class="section-deco section-deco--float" style="width:220px;height:220px;background:rgba(212,196,168,0.08);bottom:8%;left:-40px;"></div>
+    <div class="section-deco section-deco--float2" style="width:140px;height:140px;background:rgba(143,165,178,0.06);top:55%;left:45%;"></div>
+    <div class="inner">
+      <div class="section-title">
+        <span class="big">PAR ICI</span>
+        <span class="small">aussi &#x1F49B;</span>
+      </div>
+      <p class="liens-intro">des ressources douces pour t'accompagner, où que tu en sois ✨</p>
+      <div class="liens-grid" id="liens-list">
+        <div class="empty-state">Chargement… 💔</div>
+      </div>
     </div>
   </section>
 
   <!-- Divider: liens → footer -->
   <div class="blob-divider">
     <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,30 C160,60 320,5 480,30 C640,55 800,10 960,35 C1120,60 1280,15 1440,30 L1440,60 L0,60 Z" fill="var(--noir)"/>
+      <path fill="var(--noir)" d="M0,30 C160,60 320,5 480,30 C640,55 800,10 960,35 C1120,60 1280,15 1440,30 L1440,60 L0,60 Z">
+        <animate attributeName="d" dur="8s" repeatCount="indefinite"
+          values="M0,30 C160,60 320,5 480,30 C640,55 800,10 960,35 C1120,60 1280,15 1440,30 L1440,60 L0,60 Z;
+                  M0,35 C180,8 340,55 500,25 C660,0 820,50 980,28 C1140,8 1300,52 1440,35 L1440,60 L0,60 Z;
+                  M0,30 C160,60 320,5 480,30 C640,55 800,10 960,35 C1120,60 1280,15 1440,30 L1440,60 L0,60 Z" />
+      </path>
     </svg>
   </div>
 
@@ -913,6 +1017,9 @@
       loadCSV('highlights.csv', FALLBACK_HIGHLIGHTS, renderHighlights);
       loadCSV('series.csv',     FALLBACK_SERIES,     renderSeries);
       loadCSV('liens.csv',      FALLBACK_LIENS,       renderLiens);
+
+      /* Observe floating background shapes */
+      document.querySelectorAll('.section-deco').forEach(el => io.observe(el));
     });
   </script>
 </body>
