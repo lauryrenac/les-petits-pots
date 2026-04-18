@@ -702,17 +702,11 @@
   <!-- Vague de transition -->
   <div class="wave-divider">
     <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path fill="var(--creme)" d="M0,0 L1440,0 L1440,60 C1200,20 960,100 720,60 C480,20 240,100 0,60 Z">
+      <path fill="var(--creme)" stroke="#c4ad8a" stroke-width="2" d="M0,-10 L1440,-10 L1440,60 C1200,20 960,100 720,60 C480,20 240,100 0,60 Z">
         <animate attributeName="d" dur="6s" repeatCount="indefinite"
-          values="M0,0 L1440,0 L1440,60 C1200,20 960,100 720,60 C480,20 240,100 0,60 Z;
-                  M0,0 L1440,0 L1440,55 C1180,95 940,15 720,65 C500,115 260,10 0,50 Z;
-                  M0,0 L1440,0 L1440,60 C1200,20 960,100 720,60 C480,20 240,100 0,60 Z" />
-      </path>
-      <path fill="none" stroke="#c4ad8a" stroke-width="2" d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60">
-        <animate attributeName="d" dur="6s" repeatCount="indefinite"
-          values="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60;
-                  M0,50 C260,10 500,115 720,65 C940,15 1180,95 1440,55;
-                  M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60" />
+          values="M0,-10 L1440,-10 L1440,60 C1200,20 960,100 720,60 C480,20 240,100 0,60 Z;
+                  M0,-10 L1440,-10 L1440,55 C1180,95 940,15 720,65 C500,115 260,10 0,50 Z;
+                  M0,-10 L1440,-10 L1440,60 C1200,20 960,100 720,60 C480,20 240,100 0,60 Z" />
       </path>
     </svg>
   </div>
@@ -736,8 +730,14 @@
   </section>
 
   <!-- Divider: highlights → séries -->
-  <div class="blob-divider" style="background:#d4c5ae">
+  <div class="blob-divider">
     <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path fill="#d4c5ae" d="M0,40 C180,80 360,0 540,40 C720,80 900,10 1080,50 C1200,70 1320,20 1440,40 L1440,0 L0,0 Z">
+        <animate attributeName="d" dur="6s" repeatCount="indefinite"
+          values="M0,40 C180,80 360,0 540,40 C720,80 900,10 1080,50 C1200,70 1320,20 1440,40 L1440,0 L0,0 Z;
+                  M0,50 C200,20 380,70 560,35 C740,0 920,65 1100,30 C1240,10 1360,60 1440,45 L1440,0 L0,0 Z;
+                  M0,40 C180,80 360,0 540,40 C720,80 900,10 1080,50 C1200,70 1320,20 1440,40 L1440,0 L0,0 Z" />
+      </path>
       <path fill="var(--noir)" d="M0,40 C180,80 360,0 540,40 C720,80 900,10 1080,50 C1200,70 1320,20 1440,40 L1440,80 L0,80 Z">
         <animate attributeName="d" dur="6s" repeatCount="indefinite"
           values="M0,40 C180,80 360,0 540,40 C720,80 900,10 1080,50 C1200,70 1320,20 1440,40 L1440,80 L0,80 Z;
@@ -766,8 +766,14 @@
   </section>
 
   <!-- Divider: séries → liens -->
-  <div class="blob-divider blob-divider--flip" style="background:#d4c5ae">
+  <div class="blob-divider blob-divider--flip">
     <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path fill="#d4c5ae" d="M0,45 C200,80 400,5 600,35 C800,65 1000,10 1200,45 C1320,65 1400,30 1440,40 L1440,0 L0,0 Z">
+        <animate attributeName="d" dur="7s" repeatCount="indefinite"
+          values="M0,45 C200,80 400,5 600,35 C800,65 1000,10 1200,45 C1320,65 1400,30 1440,40 L1440,0 L0,0 Z;
+                  M0,35 C220,10 420,70 620,40 C820,10 1020,65 1220,35 C1340,15 1420,55 1440,48 L1440,0 L0,0 Z;
+                  M0,45 C200,80 400,5 600,35 C800,65 1000,10 1200,45 C1320,65 1400,30 1440,40 L1440,0 L0,0 Z" />
+      </path>
       <path fill="var(--noir)" d="M0,45 C200,80 400,5 600,35 C800,65 1000,10 1200,45 C1320,65 1400,30 1440,40 L1440,80 L0,80 Z">
         <animate attributeName="d" dur="7s" repeatCount="indefinite"
           values="M0,45 C200,80 400,5 600,35 C800,65 1000,10 1200,45 C1320,65 1400,30 1440,40 L1440,80 L0,80 Z;
@@ -799,6 +805,12 @@
   <!-- Divider: liens → footer -->
   <div class="blob-divider">
     <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path fill="#e8dcc6" d="M0,30 C160,60 320,5 480,30 C640,55 800,10 960,35 C1120,60 1280,15 1440,30 L1440,0 L0,0 Z">
+        <animate attributeName="d" dur="8s" repeatCount="indefinite"
+          values="M0,30 C160,60 320,5 480,30 C640,55 800,10 960,35 C1120,60 1280,15 1440,30 L1440,0 L0,0 Z;
+                  M0,35 C180,8 340,55 500,25 C660,0 820,50 980,28 C1140,8 1300,52 1440,35 L1440,0 L0,0 Z;
+                  M0,30 C160,60 320,5 480,30 C640,55 800,10 960,35 C1120,60 1280,15 1440,30 L1440,0 L0,0 Z" />
+      </path>
       <path fill="var(--noir)" d="M0,30 C160,60 320,5 480,30 C640,55 800,10 960,35 C1120,60 1280,15 1440,30 L1440,60 L0,60 Z">
         <animate attributeName="d" dur="8s" repeatCount="indefinite"
           values="M0,30 C160,60 320,5 480,30 C640,55 800,10 960,35 C1120,60 1280,15 1440,30 L1440,60 L0,60 Z;
