@@ -197,19 +197,14 @@
       overflow: hidden;
       line-height: 0;
       margin-top: -1px;
+      margin-bottom: -1px;
       pointer-events: none;
+      position: relative;
+      z-index: 2;
     }
     .wave-divider svg {
       display: block;
       width: 100%;
-    }
-    .wave-divider path {
-      stroke-dasharray: 1200;
-      stroke-dashoffset: 1200;
-      animation: drawWave 1.8s ease 1.4s forwards;
-    }
-    @keyframes drawWave {
-      to { stroke-dashoffset: 0; }
     }
 
     /* Section blob dividers */
@@ -706,13 +701,12 @@
 
   <!-- Vague de transition -->
   <div class="wave-divider">
-    <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" height="60">
-      <path d="M0 30 C240 60, 480 0, 720 30 C960 60, 1200 0, 1440 30"
-            stroke="#D4C4A8" stroke-width="2" fill="none">
-        <animate attributeName="d" dur="5s" repeatCount="indefinite"
-          values="M0 30 C240 60, 480 0, 720 30 C960 60, 1200 0, 1440 30;
-                  M0 35 C260 5, 500 55, 720 25 C940 -5, 1180 55, 1440 35;
-                  M0 30 C240 60, 480 0, 720 30 C960 60, 1200 0, 1440 30" />
+    <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path fill="var(--creme)" d="M0,0 L1440,0 L1440,60 C1200,20 960,100 720,60 C480,20 240,100 0,60 Z">
+        <animate attributeName="d" dur="6s" repeatCount="indefinite"
+          values="M0,0 L1440,0 L1440,60 C1200,20 960,100 720,60 C480,20 240,100 0,60 Z;
+                  M0,0 L1440,0 L1440,55 C1180,95 940,15 720,65 C500,115 260,10 0,50 Z;
+                  M0,0 L1440,0 L1440,60 C1200,20 960,100 720,60 C480,20 240,100 0,60 Z" />
       </path>
     </svg>
   </div>
