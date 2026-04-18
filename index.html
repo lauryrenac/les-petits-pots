@@ -71,7 +71,7 @@
        HERO
     ───────────────────────────────────────────────── */
     #hero {
-      min-height: 100vh;
+      min-height: 110vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -197,7 +197,7 @@
       overflow: hidden;
       line-height: 0;
       margin-top: -1px;
-      margin-bottom: -1px;
+      margin-bottom: -8.334vw;
       pointer-events: none;
       position: relative;
       z-index: 2;
@@ -268,11 +268,11 @@
        HIGHLIGHTS — scrapbook style
     ───────────────────────────────────────────────── */
     #highlights {
-      background: linear-gradient(170deg, var(--creme) 0%, #e3d5c0 35%, #d4c5ae 100%);
+      background: linear-gradient(180deg, var(--creme) 0%, #e3d5c0 35%, #d4c5ae 100%);
       position: relative;
       overflow: hidden;
       max-width: 100%;
-      padding: 80px 0 160px 0;
+      padding: calc(80px + 8.334vw) 0 160px 0;
       margin-bottom: -80px;
       z-index: 1;
     }
@@ -374,7 +374,7 @@
        SÉRIES
     ───────────────────────────────────────────────── */
     #series {
-      background: linear-gradient(165deg, #2B2225 0%, #3a2d35 30%, #211c23 100%);
+      background: var(--noir);
       color: var(--creme);
       max-width: 100%;
       padding: 80px 0;
@@ -480,7 +480,7 @@
        LIENS EXTERNES — warm safe-space cards
     ───────────────────────────────────────────────── */
     #liens {
-      background: linear-gradient(175deg, #d4c5ae 0%, var(--creme) 45%, #e8dcc6 100%);
+      background: linear-gradient(180deg, #d4c5ae 0%, var(--creme) 45%, #e8dcc6 100%);
       position: relative;
       overflow: hidden;
       max-width: 100%;
@@ -702,11 +702,11 @@
   <!-- Vague de transition -->
   <div class="wave-divider">
     <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path fill="var(--creme)" d="M0,0 L1440,0 L1440,60 C1200,20 960,100 720,60 C480,20 240,100 0,60 Z">
+      <path fill="var(--creme)" stroke="#c4ad8a" stroke-width="2" d="M-5,-5 L1445,-5 L1445,60 C1200,20 960,100 720,60 C480,20 240,100 -5,60 Z">
         <animate attributeName="d" dur="6s" repeatCount="indefinite"
-          values="M0,0 L1440,0 L1440,60 C1200,20 960,100 720,60 C480,20 240,100 0,60 Z;
-                  M0,0 L1440,0 L1440,55 C1180,95 940,15 720,65 C500,115 260,10 0,50 Z;
-                  M0,0 L1440,0 L1440,60 C1200,20 960,100 720,60 C480,20 240,100 0,60 Z" />
+          values="M-5,-5 L1445,-5 L1445,60 C1200,20 960,100 720,60 C480,20 240,100 -5,60 Z;
+                  M-5,-5 L1445,-5 L1445,55 C1180,95 940,15 720,65 C500,115 260,10 -5,50 Z;
+                  M-5,-5 L1445,-5 L1445,60 C1200,20 960,100 720,60 C480,20 240,100 -5,60 Z" />
       </path>
     </svg>
   </div>
